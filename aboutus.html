@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WG Servicios - Tienda de Aseo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" sizes="192x192" href="img/logo.jpg">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .hero {
+    position: relative;
+    background: url('https://source.unsplash.com/1600x900/?cleaning') center/cover;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 80, 160, 0.6); /* Azul profesional con transparencia */
+}
+
+.hero h1 {
+    position: relative;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.2); /* Le da un toque de brillo al texto */
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+
+
+        .cart-badge {
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 4px 8px;
+            font-size: 12px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .img-fluid {
+            max-height: 200px;
+            object-fit: contain;
+        }
+        .about-section {
+            background: #f8f9fa;
+            padding: 50px 20px;
+            border-radius: 10px;
+        }
+        .about-section h2 {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">WG Servicios</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aliados.html">Nuestros Aliados</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">Sobre Nosotros</a></li>
+                    <li class="nav-item position-relative ms-3">
+                        <a href="carrito.html" class="position-relative">
+                            <img src="img/carrito.png" alt="Carrito" width="40">
+                            <span id="contador-carrito" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de Hero -->
+    <div class="hero">
+        <h1>Soluciones de Aseo y Mantenimiento de Calidad</h1>
+    </div>
+
+    <!-- Sección Sobre Nosotros -->
+    <!-- Sección Sobre Nosotros -->
+    <section class="container mt-5 about-section">
+        <h2 class="text-center mb-4">Sobre Nosotros</h2>
+        <p class="text-center">
+            En <strong>WG Servicios</strong>, sabemos que un espacio limpio no es solo cuestión de apariencia, sino de bienestar, salud y calidad de vida. 
+            Por eso, nos metemos de lleno a ofrecer soluciones de aseo y mantenimiento con un estándar alto, sin vueltas ni atajos. Con nosotros, no hay medias tintas: 
+            trabajamos con un equipo de expertos que le ponen el alma a cada servicio, garantizando que cada rincón quede impecable.
+        </p>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h4><i class="bi bi-bullseye"></i> Nuestra Misión 🚀</h4>
+                <p>
+                    Más que limpiar, queremos transformar espacios. Nos dedicamos a brindar servicios de aseo que sean eficientes, confiables y, sobre todo, de calidad. 
+                    Usamos productos top y contamos con un combo de profesionales bien preparados, listos para dejar todo reluciente. 
+                    La satisfacción de nuestros clientes es nuestra mejor carta de presentación, porque sabemos que cuando las cosas se hacen bien, se notan.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <h4><i class="bi bi-eye"></i> Nuestra Visión 👀</h4>
+                <p>
+                    Soñamos en grande: ser la empresa líder en soluciones de aseo y mantenimiento. No queremos ser solo "otra empresa de aseo"; 
+                    queremos marcar la diferencia con innovación, compromiso y sostenibilidad. Apostamos por procesos más ecológicos, tecnología que optimice nuestro trabajo 
+                    y un servicio que haga que cada cliente nos prefiera una y otra vez.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2025 WG Servicios - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

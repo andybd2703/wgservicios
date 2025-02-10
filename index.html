@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WG Servicios - Tienda de Aseo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link data-default-icon="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png" rel="icon" sizes="192x192" href="img/logo.jpg" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?cleaning') center/cover;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 20px;
+        }
+        .cart-badge {
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 4px 8px;
+            font-size: 12px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .img-fluid {
+            max-height: 200px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">WG Servicios</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aliados.html">Nuestros Aliados</a></li>
+                    <li class="nav-item position-relative ms-3">
+                        <a href="carrito.html" class="position-relative">
+                            <img src="img/carrito.png" alt="Carrito" width="40">
+                            <span id="contador-carrito" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>¡Los mejores productos de limpieza para tu hogar y empresa!</h1>
+        </div>
+    </header>
+
+    
+    <section id="productos" class="py-5 text-center">
+        <div class="container">
+            <h2>Nuestros Productos</h2>
+            
+            <!-- Filtro con Bootstrap -->
+            <div class="mb-4">
+                <select class="form-select w-auto mx-auto" onchange="filtrarProductos(this.value)">
+                    <option value="todos">Todos</option>
+                    <option value="detergente">Detergentes</option>
+                    <option value="papel">Papel Higiénico</option>
+                    <option value="limpiador">Limpiadores</option>
+                    <option value="dispensador">Dispensador</option>
+                    <option value="plumero">Plumero</option>
+                    <option value="pastilla">Pastillas</option>
+                </select>
+            </div>
+    
+            <div class="row mt-4" id="lista-productos">
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4 producto" data-categoria="detergente">
+                    <div class="card p-3 shadow">
+                        <img src="img/fab.jpg" class="card-img-top img-fluid" alt="Detergente Líquido">
+                        <div class="card-body">
+                            <h4>Detergente Líquido</h4>
+                            <p>Ideal para limpieza profunda.</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito(1, 'Detergente Líquido', 5000)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4 producto" data-categoria="papel">
+                    <div class="card p-3 shadow">
+                        <img src="img/fam.png" class="card-img-top img-fluid" alt="Papel Higiénico Familia">
+                        <div class="card-body">
+                            <h4>Papel Higiénico Familia</h4>
+                            <p>Megarrollo Alcochamax.</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito(2, 'Papel Higiénico Familia', 13000)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4 producto" data-categoria="limpiador">
+                    <div class="card p-3 shadow">
+                        <img src="img/blancox.avif" class="card-img-top img-fluid" alt="Blancox Limpiador">
+                        <div class="card-body">
+                            <h4>Blancox Limpiador</h4>
+                            <p>Multiusos Vinagre.</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito(3, 'Blancox Limpiador', 7000)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4 producto" data-categoria="dispensador">
+                    <div class="card p-3 shadow">
+                        <img src="img/dispfam.jpg" class="card-img-top img-fluid" alt="Dispensador Familia">
+                        <div class="card-body">
+                            <h4>Dispensador Familia</h4>
+                            <p>Color Blanco.</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito(4, 'Dispensador Familia', 30000)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4 producto" data-categoria="plumero">
+                    <div class="card p-3 shadow">
+                        <img src="img/plumero.webp" class="card-img-top img-fluid" alt="Plumero">
+                        <div class="card-body">
+                            <h4>Plumero</h4>
+                            <p>Blanco.</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito(5, 'Plumero', 15000)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4 producto" data-categoria="pastilla">
+                    <div class="card p-3 shadow">
+                        <img src="img/pastilla.avif" class="card-img-top img-fluid" alt="Pastilla Clorox">
+                        <div class="card-body">
+                            <h4>Pastilla Desinfectante</h4>
+                            <p>Clorox.</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito(6, 'Pastilla Desinfectante', 3000)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4 producto" data-categoria="detergente">
+                    <div class="card p-3 shadow">
+                        <img src="img/fabdet.jpg" class="card-img-top img-fluid" alt="Detergente Fab">
+                        <div class="card-body">
+                            <h4>Detergente en Polvo Fab</h4>
+                            <p>$50.000</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito(7, 'Detergente Fab', 45000)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4 producto" data-categoria="servilletas">
+                    <div class="card p-3 shadow">
+                        <img src="img/servfam.jpg" class="card-img-top img-fluid" alt="servilletas Familia">
+                        <div class="card-body">
+                            <h4>Servilletas Familia</h4>
+                            <p>$5.000</p>
+                            <button class="btn btn-success" onclick="agregarAlCarrito(8, 'Servilletas Familia', 2500)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function filtrarProductos(categoria) {
+            let productos = document.querySelectorAll('.producto');
+            productos.forEach(producto => {
+                if (categoria === 'todos' || producto.dataset.categoria === categoria) {
+                    producto.style.display = 'block';
+                } else {
+                    producto.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 WG Servicios - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        function filtrarProductos(categoria) {
+            let productos = document.querySelectorAll('.producto');
+            productos.forEach(producto => {
+                producto.style.display = (categoria === 'todos' || producto.dataset.categoria === categoria) ? 'block' : 'none';
+            });
+        }
+
+        function agregarAlCarrito(id, nombre, precio) {
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            let productoExistente = carrito.find(item => item.id === id);
+
+            if (productoExistente) {
+                productoExistente.cantidad += 1;
+            } else {
+                carrito.push({ id, nombre, precio, cantidad: 1 });
+            }
+
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            actualizarContadorCarrito();
+        }
+
+        function actualizarContadorCarrito() {
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            let totalCantidad = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+            document.getElementById("contador-carrito").textContent = totalCantidad;
+        }
+
+        document.addEventListener("DOMContentLoaded", actualizarContadorCarrito);
+    </script>
+</body>
+</html>
